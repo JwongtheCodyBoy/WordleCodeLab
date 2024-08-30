@@ -1,0 +1,25 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2024-08-30T17:18:39-04:00",
+  "id": "WordleCodeLab",
+  "duration": 32,
+  "title": "Wordle Workshop Game Devlopment Club",
+  "summary": "",
+  "source": "WordleCodeLab.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "usfgamedevelopmentworkshop"
+  ],
+  "tags": [
+    "python",
+    "web"
+  ],
+  "feedback": "https://github.com/SolaceDev/solace-dev-codelabs/blob/master/markdown/WordleCodeLab",
+  "url": "WordleCodeLab"
+}

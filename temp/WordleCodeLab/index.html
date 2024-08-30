@@ -1,0 +1,240 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Wordle Workshop Game Devlopment Club</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" ga4id=""></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  codelab-ga4id=""
+                  id="WordleCodeLab"
+                  title="Wordle Workshop Game Devlopment Club"
+                  environment="web"
+                  feedback-link="https://github.com/SolaceDev/solace-dev-codelabs/blob/master/markdown/WordleCodeLab">
+    
+      <google-codelab-step label="What you&#39;ll learn: Overview" duration="5">
+        <p>Make Wordle in Python terminal in about 48 lines of code</p>
+<h2 is-upgraded>Table of Content</h2>
+<ol type="1">
+<li>Setup Enviorment</li>
+<li>Setting the template and Intro function</li>
+<li>Input and word logic cases</li>
+<li>Word guess logic</li>
+<li>Use a text file instead of a word list</li>
+</ol>
+<h2 is-upgraded>Add an Image or a GIF</h2>
+<p class="image-container"><img alt="Soly Image Caption" src="img\\44f356558033e250.gif"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Setup Enviorment" duration="7">
+        <p>Only need two things:</p>
+<ul>
+<li>VS code</li>
+<li>Python</li>
+</ul>
+<p>Get Visual Studio Code because why use any other IDEs <a href="https://code.visualstudio.com/download" target="_blank">Download VS Code</a><br></p>
+<p>Get Python from Python website, <a href="https://www.python.org/downloads/" target="_blank">Click Here!</a></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Setting the template and Intro function" duration="4">
+        <h2 is-upgraded>What is Wordle and what does it need?</h2>
+<p>Wordle is a word guessing game, that the user guess a random word and get clues based on past guess</p>
+<p>So some things we will need, randomness, and a word bank and game logic.</p>
+<pre><code>import random
+
+words = [&#39;gamed&#39;, &#39;usfgdc&#39;, &#39;tired&#39;, &#39;cofee&#39;, &#39;ineed&#39;]
+
+def main():
+
+main()
+</code></pre>
+<h2 is-upgraded>Probably a good idea to include some Instructions to the game at the top, so lets add a function</h2>
+<pre><code>def Intro():
+    print(&#34;This is Wordle&#34;)
+    print(&#34;\t✅ - letter is the word and is in correct spot&#34;)
+    print(&#34;\t🟨 - letter is the word and is not in the right spot&#34;)
+    print(&#34;\t _ - letter is not in the word&#34;)
+    print()
+</code></pre>
+<p>Call the function in your main</p>
+<pre><code>import random
+
+words = [&#39;gamed&#39;, &#39;usfgdc&#39;, &#39;tired&#39;, &#39;cofee&#39;, &#39;ineed&#39;]
+
+def Intro():
+    ...
+
+def main():
+    Intro()
+    
+main()
+</code></pre>
+<h2 is-upgraded>Picking a random word in the word bank</h2>
+<pre><code>def main():
+    Intro()
+    hiddenWord = words[random.randint(0, len(words)-1)]
+</code></pre>
+<p>Also wordle has a limited number of trys, so lets add that too.</p>
+<pre><code>hiddenWord = words[random.randint(0, len(words)-1)]
+attempts = 5    # NEW CODE HERE
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Input and word logic cases" duration="0">
+        <p>Duration 0:07:00</p>
+<h2 is-upgraded>Design and Logic</h2>
+<p>What we want:</p>
+<ul>
+<li>While user still has an attempt left, allow them to guess</li>
+<li>Take the user&#39;s input/guess</li>
+<li>If User guess the hidden word then end game, Otherwise do some wordle game logic to give a glue</li>
+<li>Remove an attempt per guess and tell the player</li>
+</ul>
+<pre><code>def main():
+    Intro()
+    hiddenWord = words[random.randint(0, len(words)-1)]
+    attempts = 5
+
+    # NEW CODE HERE
+    while (attempts &gt; 0):
+        guess = input(&#34;Enter Guess (5 Letter Word): &#34;).lower()
+
+        if (guess == hiddenWord):
+            print(&#34;Good Guess!!!&#34;)
+            break
+        else:
+            # Do wordle clue logic
+        
+        attempts -= 1
+        print(f&#34;{attempts} are left.\n&#34;)
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Word guess logic" duration="7">
+        <h2 is-upgraded>Design and Logic</h2>
+<ul>
+<li>Create an output that tells us something about the hidden word</li>
+<li>Check for every letter in the guess If it is in the same spot of the hidden word, give it a checkmark</li>
+<li>else if the letter is in the word, mark it as yellow</li>
+<li>otherwise leave it blank</li>
+</ul>
+<h2 is-upgraded>Doing it in code</h2>
+<pre><code>if (guess == hiddenWord):
+    print(&#34;Good Guess!!!&#34;)
+    break
+else:
+    # NEW CODE HERE
+    output = &#34;&#34;
+    for hiddenLetter, guessLetter in zip(hiddenWord, guess):
+        if (hiddenLetter == guessLetter.lower()):
+            output += &#34; ✅ &#34;
+</code></pre>
+<p>Since if statements will skip else-if and else statements when true, we can just stack these statements logically for easy implementation</p>
+<pre><code>else:
+    output = &#34;&#34;
+    for hiddenLetter, guessLetter in zip(hiddenWord, guess):
+        if (hiddenLetter == guessLetter.lower()):
+            output += &#34; ✅ &#34;
+
+        # NEW CODE HERE
+        elif (guessLetter in hiddenWord):
+            output += &#34; 🟨 &#34;
+        else:
+            output += &#34; _ &#34;
+
+    print(output)       #outside of the loop
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Use a text file instead of a word list" duration="8">
+        <h2 is-upgraded>Lets reveal the secret word if user run out of attempts</h2>
+<pre><code>            attempts -= 1
+            print(f&#34;{attempts} are left.\n&#34;)
+
+# NEW CODE HERE
+            if (attempts == 0): 
+                print(f&#34;All attempts were used, the word was {hiddenWord.upper()}.&#34;)
+# NEW CODE END
+
+main()
+</code></pre>
+<h2 is-upgraded>Now Your wordle is already functional logically, HOORAY</h2>
+<p>However, you may notice that you can enter non-real words and it still runs unlike wordle</p>
+<p>Additionally, you also may realize that if we want more words, we will have to expand our list which makes it ugly and wonder why do that manually</p>
+<h2 is-upgraded>Design and Logic</h2>
+<ul>
+<li>Make it so that we can not guess random letters, and actually have to guess words</li>
+<li>Not take User&#39;s attempt or run logic not in our word bank</li>
+<li>Make it so that our word bank can be larger without bad code</li>
+</ul>
+<h2 is-upgraded>Coding our Design</h2>
+<pre><code>while (attempts &gt; 0):
+    guess = input(&#34;Enter Guess (5 Letter Word): &#34;).lower()
+
+    # NEW CODE HERE
+    if (guess not in words):            # because we are arrogant if we dont know it, it doesn&#39;t exist
+        print(&#34;Word not in word list, Try another word\n&#34;)
+        continue
+    # NEW CODE END
+
+    if (guess == hiddenWord):
+            print(&#34;Good Guess!!!&#34;)
+</code></pre>
+<h2 is-upgraded>Opening an external file in python</h2>
+<pre><code>import random
+
+# NEW CODE HERE
+# wordslist.txt was taken from here https://gist.github.com/dracos/dd0668f281e685bad51479e5acaadb93
+with open(&#39;wordslist.txt&#39;, &#39;r&#39;) as wordsFile:
+    words = wordsFile.read().split(&#39;\n&#39;)
+
+# words = [&#39;gamed&#39;, &#39;usfgdc&#39;, &#39;tired&#39;, &#39;cofee&#39;, &#39;ineed&#39;]        Remove this if you want
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Wordle IS done" duration="1">
+        <p>✅ &lt; Fill IN TAKEAWAY 1&gt;<br> ✅ &lt; Fill IN TAKEAWAY 2&gt;<br> ✅ &lt; Fill IN TAKEAWAY 3&gt;</p>
+<p class="image-container"><img alt="Soly Image Caption" src="img\\44f356558033e250.gif"></p>
+<p>Thanks for participating in this codelab! Let us know what you thought in the <a href="https://solace.community/" target="_blank">Solace Community Forum</a>! If you found any issues along the way we&#39;d appreciate it if you&#39;d raise them by clicking the Report a mistake button at the bottom left of this codelab.</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
