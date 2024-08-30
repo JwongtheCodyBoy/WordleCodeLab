@@ -225,14 +225,13 @@ with open('wordslist.txt', 'r') as wordsFile:
 # words = ['gamed', 'usfgdc', 'tired', 'cofee', 'ineed']        Remove this if you want
 ```
 
-## Wordle IS done
+## WORDLE IS NOW C__PL_TE
 
 Duration: 0:01:00
 
-✅ < Fill IN TAKEAWAY 1>   
-✅ < Fill IN TAKEAWAY 2>   
-✅ < Fill IN TAKEAWAY 3>   
+One more thing to add to your resume, proving your Python experience. Please check-in 
+College of engineering pays us depending on sign-in numbers
+
+Fun Fact, the seal you seal you see here is called solly, solly is quite thin for a seal. Its because the College of Engineering did give solly money for his meal, if you want to make a difference its as simple as scanning the QR code.
 
 ![Soly Image Caption](img/soly.gif)
-
-Thanks for participating in this codelab! Let us know what you thought in the [Solace Community Forum](https://solace.community/)! If you found any issues along the way we'd appreciate it if you'd raise them by clicking the Report a mistake button at the bottom left of this codelab.
