@@ -22,9 +22,9 @@ Make Wordle in Python terminal in about 48 lines of code
 1. Word guess logic
 1. Use a text file instead of a word list
 
-### Add an Image or a GIF
+### Image of Final Project, Wordle in Terminal
 
-![Soly Image Caption](img/soly.gif)
+![Finish Product](img/wordle.png)
 
 ## Setup Enviorment 
 
@@ -223,6 +223,18 @@ with open('wordslist.txt', 'r') as wordsFile:
     words = wordsFile.read().split('\n')
 
 # words = ['gamed', 'usfgdc', 'tired', 'cofee', 'ineed']        Remove this if you want
+```
+
+### Optional, Rather than having Colored squares you can have colored text by replaceing the logic part with this code
+```
+if (hiddenLetter == guessLetter.lower()):
+    output += "\033[32m " + guessLetter.upper()
+elif (guessLetter in hiddenWord):
+    output += "\033[33m " + guessLetter.upper()
+else:
+    output += "\033[37m"+ " _ "
+
+output += "\033[37m"
 ```
 
 ## WORDLE IS NOW C__PL_TE

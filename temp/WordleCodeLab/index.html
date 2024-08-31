@@ -38,8 +38,8 @@
 <li>Word guess logic</li>
 <li>Use a text file instead of a word list</li>
 </ol>
-<h2 is-upgraded>Add an Image or a GIF</h2>
-<p class="image-container"><img alt="Soly Image Caption" src="img\\44f356558033e250.gif"></p>
+<h2 is-upgraded>Image of Final Project, Wordle in Terminal</h2>
+<p class="image-container"><img alt="Finish Product" src="img\\14ac7e2954eb4c24.png"></p>
 
 
       </google-codelab-step>
@@ -216,14 +216,24 @@ with open(&#39;wordslist.txt&#39;, &#39;r&#39;) as wordsFile:
 
 # words = [&#39;gamed&#39;, &#39;usfgdc&#39;, &#39;tired&#39;, &#39;cofee&#39;, &#39;ineed&#39;]        Remove this if you want
 </code></pre>
+<h2 is-upgraded>Optional, Rather than having Colored squares you can have colored text by replaceing the logic part with this code</h2>
+<pre><code>if (hiddenLetter == guessLetter.lower()):
+    output += &#34;\033[32m &#34; + guessLetter.upper()
+elif (guessLetter in hiddenWord):
+    output += &#34;\033[33m &#34; + guessLetter.upper()
+else:
+    output += &#34;\033[37m&#34;+ &#34; _ &#34;
+
+output += &#34;\033[37m&#34;
+</code></pre>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Wordle IS done" duration="1">
-        <p>✅ &lt; Fill IN TAKEAWAY 1&gt;<br> ✅ &lt; Fill IN TAKEAWAY 2&gt;<br> ✅ &lt; Fill IN TAKEAWAY 3&gt;</p>
+      <google-codelab-step label="WORDLE IS NOW C__PL_TE" duration="1">
+        <p>One more thing to add to your resume, proving your Python experience. Please check-in College of engineering pays us depending on sign-in numbers</p>
+<p>Fun Fact, the seal you seal you see here is called solly, solly is quite thin for a seal. Its because the College of Engineering did give solly money for his meal, if you want to make a difference its as simple as scanning the QR code.</p>
 <p class="image-container"><img alt="Soly Image Caption" src="img\\44f356558033e250.gif"></p>
-<p>Thanks for participating in this codelab! Let us know what you thought in the <a href="https://solace.community/" target="_blank">Solace Community Forum</a>! If you found any issues along the way we&#39;d appreciate it if you&#39;d raise them by clicking the Report a mistake button at the bottom left of this codelab.</p>
 
 
       </google-codelab-step>
